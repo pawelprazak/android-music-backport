@@ -1254,10 +1254,8 @@ public class MediaPlaybackService extends Service {
                     tracks[i] = i;
                 }
 
-                int numHistory = mHistory.size();
                 int numUnplayed = numTracks;
-                for (int i=0;i < numHistory; i++) {
-                    int idx = mHistory.get(i).intValue();
+                for (int idx : mHistory) {                
                     if (idx < numTracks && tracks[idx] >= 0) {
                         numUnplayed--;
                         tracks[idx] = -1;
