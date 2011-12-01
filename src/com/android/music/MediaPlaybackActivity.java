@@ -346,7 +346,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
                 mPosOverride = mDuration * progress / 1000;
                 try {
                     mService.seek(mPosOverride);
-                } catch (RemoteException ex) {
+                } catch (RemoteException ignored) {
                 }
 
                 // trackball event, allow progress updates
@@ -400,7 +400,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
                     mService.seek(0);
                     mService.play();
                 }
-            } catch (RemoteException ex) {
+            } catch (RemoteException ignored) {
             }
         }
     };
@@ -410,7 +410,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
             if (mService == null) return;
             try {
                 mService.next();
-            } catch (RemoteException ex) {
+            } catch (RemoteException ignored) {
             }
         }
     };
@@ -589,7 +589,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
                     throw new UnsupportedOperationException("Removed from backport");
                 }
             }
-        } catch (RemoteException ex) {
+        } catch (RemoteException ignored) {
         }
         return super.onOptionsItemSelected(item);
     }
@@ -678,7 +678,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
                     lastY = y;
                     try {
                         mService.seek(mService.position() + dir * 5);
-                    } catch (RemoteException ex) {
+                    } catch (RemoteException ignored) {
                     }
                     refreshNow();
                     return true;
@@ -698,7 +698,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
                 int seekpercentage = 100*i/10;
                 try {
                     mService.seek(mService.duration() * seekpercentage / 100);
-                } catch (RemoteException ex) {
+                } catch (RemoteException ignored) {
                 }
                 refreshNow();
                 return true;
@@ -751,7 +751,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
                     mPosOverride = -1;
                     return true;
             }
-        } catch (RemoteException ex) {
+        } catch (RemoteException ignored) {
         }
         return super.onKeyUp(keyCode, event);
     }
@@ -866,7 +866,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
                 }
                 refreshNow();
             }
-        } catch (RemoteException ex) {
+        } catch (RemoteException ignored) {
         }
     }
 
@@ -905,7 +905,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
                 }
                 refreshNow();
             }
-        } catch (RemoteException ex) {
+        } catch (RemoteException ignored) {
         }
     }
     
@@ -920,7 +920,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
                 refreshNow();
                 setPauseButtonImage();
             }
-        } catch (RemoteException ex) {
+        } catch (RemoteException ignored) {
         }
     }
     
@@ -945,7 +945,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
                 Log.e("MediaPlaybackActivity", "Invalid shuffle mode: " + shuffle);
             }
             setShuffleButtonImage();
-        } catch (RemoteException ex) {
+        } catch (RemoteException ignored) {
         }
     }
     
@@ -970,7 +970,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
                 showToast(R.string.repeat_off_notif);
             }
             setRepeatButtonImage();
-        } catch (RemoteException ex) {
+        } catch (RemoteException ignored) {
         }
         
     }
@@ -1032,7 +1032,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
                         setPauseButtonImage();
                         return;
                     }
-                } catch (RemoteException ex) {
+                } catch (RemoteException ignored) {
                 }
                 // Service is dead or not playing anything. If we got here as part
                 // of a "play this file" Intent, exit. Otherwise go to the Music
@@ -1064,7 +1064,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
                     mRepeatButton.setImageResource(R.drawable.ic_mp_repeat_off_btn);
                     break;
             }
-        } catch (RemoteException ex) {
+        } catch (RemoteException ignored) {
         }
     }
     
@@ -1082,7 +1082,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
                     mShuffleButton.setImageResource(R.drawable.ic_mp_shuffle_on_btn);
                     break;
             }
-        } catch (RemoteException ex) {
+        } catch (RemoteException ignored) {
         }
     }
     
@@ -1093,7 +1093,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
             } else {
                 mPauseButton.setImageResource(android.R.drawable.ic_media_play);
             }
-        } catch (RemoteException ex) {
+        } catch (RemoteException ignored) {
         }
     }
     
@@ -1149,7 +1149,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
             // return the number of milliseconds until the next full second, so
             // the counter can be updated at just the right time
             return remaining;
-        } catch (RemoteException ex) {
+        } catch (RemoteException ignored) {
         }
         return 500;
     }
@@ -1313,7 +1313,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
                 while (mLooper == null) {
                     try {
                         mLock.wait();
-                    } catch (InterruptedException ex) {
+                    } catch (InterruptedException ignored) {
                     }
                 }
             }

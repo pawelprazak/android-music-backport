@@ -410,7 +410,7 @@ public class PlaylistBrowserActivity extends ListActivity
                 list[i] = cursor.getLong(0);
             }
             MusicUtils.playAll(this, list, 0);
-        } catch (SQLiteException ex) {
+        } catch (SQLiteException ignored) {
         } finally {
             cursor.close();
         }
@@ -435,7 +435,7 @@ public class PlaylistBrowserActivity extends ListActivity
                 list[i] = cursor.getLong(0);
             }
             MusicUtils.playAll(this, list, 0);
-        } catch (SQLiteException ex) {
+        } catch (SQLiteException ignored) {
         } finally {
             cursor.close();
         }

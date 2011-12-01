@@ -66,13 +66,13 @@ public class MusicBrowserActivity extends Activity
             // we need to be able to bind again, so unbind
             try {
                 unbindService(this);
-            } catch (IllegalArgumentException e) {
+            } catch (IllegalArgumentException ignored) {
             }
             IMediaPlaybackService serv = IMediaPlaybackService.Stub.asInterface(obj);
             if (serv != null) {
                 try {
                     serv.setShuffleMode(MediaPlaybackService.SHUFFLE_AUTO);
-                } catch (RemoteException ex) {
+                } catch (RemoteException ignored) {
                 }
             }
         }

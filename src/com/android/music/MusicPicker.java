@@ -598,7 +598,7 @@ public class MusicPicker extends ListActivity
             try {
                 return getContentResolver().query(uri, CURSOR_COLS,
                         where.toString(), null, mSortOrder);
-            } catch (UnsupportedOperationException ex) {
+            } catch (UnsupportedOperationException ignored) {
             }
         } else {
             mAdapter.setLoading(true);

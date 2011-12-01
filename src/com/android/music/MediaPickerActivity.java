@@ -123,7 +123,7 @@ public class MediaPickerActivity extends ListActivity implements MusicUtils.Defs
         if (MusicUtils.sService != null) {
             try {
                 MusicUtils.sService.stop();
-            } catch (RemoteException ex) {
+            } catch (RemoteException ignored) {
             }
         }
         Intent intent = new Intent(Intent.ACTION_VIEW);

@@ -200,7 +200,7 @@ public class MusicUtils {
         if (sService != null) {
             try {
                 return sService.getAlbumId();
-            } catch (RemoteException ex) {
+            } catch (RemoteException ignored) {
             }
         }
         return -1;
@@ -210,7 +210,7 @@ public class MusicUtils {
         if (MusicUtils.sService != null) {
             try {
                 return sService.getArtistId();
-            } catch (RemoteException ex) {
+            } catch (RemoteException ignored) {
             }
         }
         return -1;
@@ -220,7 +220,7 @@ public class MusicUtils {
         if (MusicUtils.sService != null) {
             try {
                 return sService.getAudioId();
-            } catch (RemoteException ex) {
+            } catch (RemoteException ignored) {
             }
         }
         return -1;
@@ -231,7 +231,7 @@ public class MusicUtils {
         if (sService != null) {
             try {
                 mode = sService.getShuffleMode();
-            } catch (RemoteException ex) {
+            } catch (RemoteException ignored) {
             }
         }
         return mode;
@@ -246,7 +246,7 @@ public class MusicUtils {
                 } else {
                     sService.setShuffleMode(MediaPlaybackService.SHUFFLE_AUTO);
                 }
-            } catch (RemoteException ex) {
+            } catch (RemoteException ignored) {
             }
         }
     }
@@ -273,7 +273,7 @@ public class MusicUtils {
         if (MusicUtils.sService != null) {
             try {
                 return sService.getPath() != null;
-            } catch (RemoteException ex) {
+            } catch (RemoteException ignored) {
             }
         }
         return false;
@@ -461,7 +461,7 @@ public class MusicUtils {
                     }
                     c.moveToNext();
                 }
-            } catch (RemoteException ex) {
+            } catch (RemoteException ignored) {
             }
 
             // step 2: remove selected tracks from the database
@@ -504,7 +504,7 @@ public class MusicUtils {
             String message = context.getResources().getQuantityString(
                     R.plurals.NNNtrackstoplaylist, list.length, Integer.valueOf(list.length));
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-        } catch (RemoteException ex) {
+        } catch (RemoteException ignored) {
         }
     }
 
@@ -779,7 +779,7 @@ public class MusicUtils {
             }
             sService.open(list, force_shuffle ? -1 : position);
             sService.play();
-        } catch (RemoteException ex) {
+        } catch (RemoteException ignored) {
         } finally {
             Intent intent = new Intent("com.android.music.PLAYBACK_VIEWER")
                 .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -790,7 +790,7 @@ public class MusicUtils {
     public static void clearQueue() {
         try {
             sService.removeTracks(0, Integer.MAX_VALUE);
-        } catch (RemoteException ex) {
+        } catch (RemoteException ignored) {
         }
     }
     
@@ -927,12 +927,12 @@ public class MusicUtils {
                 }
                 
                 return b;
-            } catch (FileNotFoundException e) {
+            } catch (FileNotFoundException ignored) {
             } finally {
                 try {
                     if (fd != null)
                         fd.close();
-                } catch (IOException e) {
+                } catch (IOException ignored) {
                 }
             }
         }
@@ -995,7 +995,7 @@ public class MusicUtils {
                     if (in != null) {
                         in.close();
                     }
-                } catch (IOException ex) {
+                } catch (IOException ignored) {
                 }
             }
         }
@@ -1030,8 +1030,8 @@ public class MusicUtils {
                     bm = BitmapFactory.decodeFileDescriptor(fd);
                 }
             }
-        } catch (IllegalStateException ex) {
-        } catch (FileNotFoundException ex) {
+        } catch (IllegalStateException ignored) {
+        } catch (FileNotFoundException ignored) {
         }
         if (bm != null) {
             mCachedBit = bm;
@@ -1222,7 +1222,7 @@ public class MusicUtils {
                     }});
                 return;
             }
-        } catch (RemoteException ex) {
+        } catch (RemoteException ignored) {
         }
         nowPlayingView.setVisibility(View.GONE);
     }

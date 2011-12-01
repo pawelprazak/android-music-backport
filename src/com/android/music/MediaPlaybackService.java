@@ -1039,7 +1039,7 @@ public class MediaPlaybackService extends Service {
                             mPlayPos = 0;
                         }
                     }
-                } catch (UnsupportedOperationException ex) {
+                } catch (UnsupportedOperationException ignored) {
                 }
             }
             mFileToPlay = path;
@@ -1359,7 +1359,7 @@ public class MediaPlaybackService extends Service {
                         MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, mCursor.getLong(IDCOLIDX));
                 getContentResolver().update(uri, values, null, null);
             }
-        } catch (SQLiteException ex) {
+        } catch (SQLiteException ignored) {
         }
     }
 
@@ -1438,7 +1438,7 @@ public class MediaPlaybackService extends Service {
             mPrevious = ret;
             return ret;
         }
-    };
+    }
 
     private boolean makeAutoShuffleList() {
         ContentResolver res = getContentResolver();
@@ -1458,7 +1458,7 @@ public class MediaPlaybackService extends Service {
             }
             mAutoShuffleList = list;
             return true;
-        } catch (RuntimeException ex) {
+        } catch (RuntimeException ignored) {
         } finally {
             if (c != null) {
                 c.close();

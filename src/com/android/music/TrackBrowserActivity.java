@@ -372,7 +372,7 @@ public class TrackBrowserActivity extends ListActivity
                 setSelection(cur);
                 registerReceiver(mNowPlayingListener, new IntentFilter(f));
                 mNowPlayingListener.onReceive(this, new Intent(MediaPlaybackService.META_CHANGED));
-            } catch (RemoteException ex) {
+            } catch (RemoteException ignored) {
             }
         } else {
             String key = getIntent().getStringExtra("artist");
@@ -403,7 +403,7 @@ public class TrackBrowserActivity extends ListActivity
                     mTrackList.setCacheColorHint(0);
                     return;
                 }
-            } catch (Exception ex) {
+            } catch (Exception ignored) {
             }
         }
         mTrackList.setBackgroundColor(0xff000000);
@@ -775,7 +775,7 @@ public class TrackBrowserActivity extends ListActivity
                 if (curpos != MusicUtils.sService.getQueuePosition()) {
                     mDeletedOneRow = true;
                 }
-            } catch (RemoteException ex) {
+            } catch (RemoteException ignored) {
             }
             View v = mTrackList.getSelectedView();
             v.setVisibility(View.GONE);
@@ -862,7 +862,7 @@ public class TrackBrowserActivity extends ListActivity
                 try {
                     MusicUtils.sService.setQueuePosition(position);
                     return;
-                } catch (RemoteException ex) {
+                } catch (RemoteException ignored) {
                 }
             }
         }
@@ -1177,7 +1177,7 @@ public class TrackBrowserActivity extends ListActivity
                     i++;
                 }
                 onMove(-1, (int) mCurPos);
-            } catch (RemoteException ex) {
+            } catch (RemoteException ignored) {
             }
             return true;
         }
@@ -1187,7 +1187,7 @@ public class TrackBrowserActivity extends ListActivity
                 mService.moveQueueItem(from, to);
                 mNowPlaying = mService.getQueue();
                 onMove(-1, mCurPos); // update the underlying cursor
-            } catch (RemoteException ex) {
+            } catch (RemoteException ignored) {
             }
         }
 
@@ -1467,7 +1467,7 @@ public class TrackBrowserActivity extends ListActivity
                     } else {
                         id = MusicUtils.sService.getAudioId();
                     }
-                } catch (RemoteException ex) {
+                } catch (RemoteException ignored) {
                 }
             }
             
