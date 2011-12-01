@@ -386,17 +386,15 @@ public class MediaPlaybackService extends Service {
             int len = mPlayListLen;
             for (int i = 0; i < len; i++) {
                 long n = mPlayList[i];
-                if (n < 0) {
-                    continue;
-                } else if (n == 0) {
-                    q.append("0;");
-                } else {
+                if (n > 0) {
                     while (n != 0) {
                         int digit = (int)(n & 0xf);
                         n >>>= 4;
                         q.append(hexdigits[digit]);
                     }
-                    q.append(";");
+                    q.append(";"); 
+                } else if (n == 0) {
+                    q.append("0;");
                 }
             }
             //Log.i("@@@@ service", "created queue string in " + (System.currentTimeMillis() - start) + " ms");
