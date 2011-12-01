@@ -80,13 +80,13 @@ public class MusicUtils {
             } else {
                 String f = r.getQuantityText(R.plurals.Nsongs, numsongs).toString();
                 sFormatBuilder.setLength(0);
-                sFormatter.format(f, Integer.valueOf(numsongs));
+                sFormatter.format(f, numsongs);
                 songs_albums.append(sFormatBuilder);
             }
         } else {
             String f = r.getQuantityText(R.plurals.Nalbums, numalbums).toString();
             sFormatBuilder.setLength(0);
-            sFormatter.format(f, Integer.valueOf(numalbums));
+            sFormatter.format(f, numalbums);
             songs_albums.append(sFormatBuilder);
             songs_albums.append(context.getString(R.string.albumsongseparator));
         }
@@ -113,13 +113,13 @@ public class MusicUtils {
             if (! isUnknown) {
                 String f = r.getQuantityText(R.plurals.Nalbums, numalbums).toString();
                 sFormatBuilder.setLength(0);
-                sFormatter.format(f, Integer.valueOf(numalbums));
+                sFormatter.format(f, numalbums);
                 songs_albums.append(sFormatBuilder);
                 songs_albums.append(context.getString(R.string.albumsongseparator));
             }
             String f = r.getQuantityText(R.plurals.Nsongs, numsongs).toString();
             sFormatBuilder.setLength(0);
-            sFormatter.format(f, Integer.valueOf(numsongs));
+            sFormatter.format(f, numsongs);
             songs_albums.append(sFormatBuilder);
         }
         return songs_albums.toString();
@@ -487,7 +487,7 @@ public class MusicUtils {
         }
 
         String message = context.getResources().getQuantityString(
-                R.plurals.NNNtracksdeleted, list.length, Integer.valueOf(list.length));
+                R.plurals.NNNtracksdeleted, list.length, list.length);
         
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         // We deleted a number of tracks, which could affect any number of things
@@ -502,7 +502,7 @@ public class MusicUtils {
         try {
             sService.enqueue(list, MediaPlaybackService.LAST);
             String message = context.getResources().getQuantityString(
-                    R.plurals.NNNtrackstoplaylist, list.length, Integer.valueOf(list.length));
+                    R.plurals.NNNtrackstoplaylist, list.length, list.length);
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         } catch (RemoteException ignored) {
         }
