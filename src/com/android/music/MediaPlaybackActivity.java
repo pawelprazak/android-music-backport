@@ -35,7 +35,6 @@ import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.media.audiofx.AudioEffect;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -527,11 +526,6 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
             menu.add(1, DELETE_ITEM, 0, R.string.delete_item)
                     .setIcon(R.drawable.ic_menu_delete);
 
-            Intent i = new Intent(AudioEffect.ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL);
-            if (getPackageManager().resolveActivity(i, 0) != null) {
-                menu.add(0, EFFECTS_PANEL, 0, R.string.effectspanel).setIcon(R.drawable.ic_menu_eq);
-            }
-
             return true;
         }
         return false;
@@ -625,10 +619,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
                 }
 
                 case EFFECTS_PANEL: {
-                    Intent i = new Intent(AudioEffect.ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL);
-                    i.putExtra(AudioEffect.EXTRA_AUDIO_SESSION, mService.getAudioSessionId());
-                    startActivityForResult(i, EFFECTS_PANEL);
-                    return true;
+                    throw new UnsupportedOperationException("Removed from backport");
                 }
             }
         } catch (RemoteException ex) {

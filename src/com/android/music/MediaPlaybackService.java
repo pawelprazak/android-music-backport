@@ -32,14 +32,9 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
-import android.graphics.Bitmap;
-import android.media.audiofx.AudioEffect;
 import android.media.AudioManager;
 import android.media.AudioManager.OnAudioFocusChangeListener;
-import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
-import android.media.RemoteControlClient;
-import android.media.RemoteControlClient.MetadataEditor;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.IBinder;
@@ -157,7 +152,7 @@ public class MediaPlaybackService extends Service {
     // interval after which we stop the service when idle
     private static final int IDLE_DELAY = 60000;
 
-    private RemoteControlClient mRemoteControlClient;
+    //private RemoteControlClient mRemoteControlClient;
 
     private Handler mMediaplayerHandler = new Handler() {
         float mCurrentVolume = 1.0f;
@@ -353,10 +348,6 @@ public class MediaPlaybackService extends Service {
             Log.e(LOGTAG, "Service being destroyed while still playing.");
         }
         // release all MediaPlayer resources, including the native player and wakelocks
-        Intent i = new Intent(AudioEffect.ACTION_CLOSE_AUDIO_EFFECT_CONTROL_SESSION);
-        i.putExtra(AudioEffect.EXTRA_AUDIO_SESSION, getAudioSessionId());
-        i.putExtra(AudioEffect.EXTRA_PACKAGE_NAME, getPackageName());
-        sendBroadcast(i);
         mPlayer.release();
         mPlayer = null;
 
@@ -1756,26 +1747,6 @@ public class MediaPlaybackService extends Service {
     }
 
     /**
-     * Sets the audio session ID.
-     *
-     * @param sessionId: the audio session ID.
-     */
-    public void setAudioSessionId(int sessionId) {
-        synchronized (this) {
-            mPlayer.setAudioSessionId(sessionId);
-        }
-    }
-
-    /**
-     * Returns the audio session ID.
-     */
-    public int getAudioSessionId() {
-        synchronized (this) {
-            return mPlayer.getAudioSessionId();
-        }
-    }
-
-    /**
      * Provides a unified interface for dealing with midi files and
      * other media files.
      */
@@ -1810,10 +1781,6 @@ public class MediaPlaybackService extends Service {
             }
             mMediaPlayer.setOnCompletionListener(listener);
             mMediaPlayer.setOnErrorListener(errorListener);
-            Intent i = new Intent(AudioEffect.ACTION_OPEN_AUDIO_EFFECT_CONTROL_SESSION);
-            i.putExtra(AudioEffect.EXTRA_AUDIO_SESSION, getAudioSessionId());
-            i.putExtra(AudioEffect.EXTRA_PACKAGE_NAME, getPackageName());
-            sendBroadcast(i);
             mIsInitialized = true;
         }
         
@@ -1896,14 +1863,6 @@ public class MediaPlaybackService extends Service {
 
         public void setVolume(float vol) {
             mMediaPlayer.setVolume(vol, vol);
-        }
-
-        public void setAudioSessionId(int sessionId) {
-            mMediaPlayer.setAudioSessionId(sessionId);
-        }
-
-        public int getAudioSessionId() {
-            return mMediaPlayer.getAudioSessionId();
         }
     }
 
@@ -2009,9 +1968,6 @@ public class MediaPlaybackService extends Service {
         }
         public int getMediaMountedCount() {
             return mService.get().getMediaMountedCount();
-        }
-        public int getAudioSessionId() {
-            return mService.get().getAudioSessionId();
         }
     }
 

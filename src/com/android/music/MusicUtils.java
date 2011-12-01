@@ -658,31 +658,16 @@ public class MusicUtils {
         String status = Environment.getExternalStorageState();
         int title, message;
 
-        if (android.os.Environment.isExternalStorageRemovable()) {
-            title = R.string.sdcard_error_title;
-            message = R.string.sdcard_error_message;
-        } else {
-            title = R.string.sdcard_error_title_nosdcard;
-            message = R.string.sdcard_error_message_nosdcard;
-        }
-        
+        title = R.string.sdcard_error_title;
+        message = R.string.sdcard_error_message;
+
         if (status.equals(Environment.MEDIA_SHARED) ||
                 status.equals(Environment.MEDIA_UNMOUNTED)) {
-            if (android.os.Environment.isExternalStorageRemovable()) {
-                title = R.string.sdcard_busy_title;
-                message = R.string.sdcard_busy_message;
-            } else {
-                title = R.string.sdcard_busy_title_nosdcard;
-                message = R.string.sdcard_busy_message_nosdcard;
-            }
+            title = R.string.sdcard_busy_title;
+            message = R.string.sdcard_busy_message;
         } else if (status.equals(Environment.MEDIA_REMOVED)) {
-            if (android.os.Environment.isExternalStorageRemovable()) {
-                title = R.string.sdcard_missing_title;
-                message = R.string.sdcard_missing_message;
-            } else {
-                title = R.string.sdcard_missing_title_nosdcard;
-                message = R.string.sdcard_missing_message_nosdcard;
-            }
+            title = R.string.sdcard_missing_title;
+            message = R.string.sdcard_missing_message;
         } else if (status.equals(Environment.MEDIA_MOUNTED)){
             // The card is mounted, but we didn't get a valid cursor.
             // This probably means the mediascanner hasn't started scanning the

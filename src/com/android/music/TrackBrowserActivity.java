@@ -716,12 +716,7 @@ public class TrackBrowserActivity extends ListActivity
                 long [] list = new long[1];
                 list[0] = (int) mSelectedId;
                 Bundle b = new Bundle();
-                String f;
-                if (android.os.Environment.isExternalStorageRemovable()) {
-                    f = getString(R.string.delete_song_desc); 
-                } else {
-                    f = getString(R.string.delete_song_desc_nosdcard); 
-                }
+                String f = getString(R.string.delete_song_desc);
                 String desc = String.format(f, mCurrentTrackName);
                 b.putString("description", desc);
                 b.putLongArray("items", list);
@@ -1284,11 +1279,6 @@ public class TrackBrowserActivity extends ListActivity
         public double getDouble(int column)
         {
             return mCurrentPlaylistCursor.getDouble(column);
-        }
-
-        @Override
-        public int getType(int column) {
-            return mCurrentPlaylistCursor.getType(column);
         }
 
         @Override

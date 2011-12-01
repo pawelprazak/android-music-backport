@@ -65,11 +65,7 @@ public class ScanningProgress extends Activity
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        if (android.os.Environment.isExternalStorageRemovable()) {
-            setContentView(R.layout.scanning);
-        } else {
-            setContentView(R.layout.scanning_nosdcard);
-        }
+        setContentView(R.layout.scanning);
         getWindow().setLayout(WindowManager.LayoutParams.WRAP_CONTENT,
                                     WindowManager.LayoutParams.WRAP_CONTENT);
         setResult(RESULT_CANCELED);
