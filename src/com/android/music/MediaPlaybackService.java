@@ -1312,7 +1312,6 @@ public class MediaPlaybackService extends Service {
                 }
                 mPlayPos = cnt;
             } else if (mShuffleMode == SHUFFLE_AUTO) {
-                doAutoShuffleUpdate();
                 mPlayPos++;
             } else {
                 if (mPlayPos >= mPlayListLen - 1) {
@@ -1335,6 +1334,9 @@ public class MediaPlaybackService extends Service {
             openCurrent();
             play();
             notifyChange(META_CHANGED);
+            if (mShuffleMode == SHUFFLE_AUTO) {
+                doAutoShuffleUpdate();
+            }
         }
     }
     
