@@ -32,21 +32,11 @@ import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
+import android.view.*;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.RadioButton;
-import android.widget.SectionIndexer;
-import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
+import android.widget.*;
 
 import java.io.IOException;
-import java.text.Collator;
 import java.util.Formatter;
 import java.util.Locale;
 

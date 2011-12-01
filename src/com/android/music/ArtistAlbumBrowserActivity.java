@@ -16,19 +16,9 @@
 
 package com.android.music;
 
-import com.android.music.MusicUtils.ServiceToken;
-import com.android.music.QueryBrowserActivity.QueryListAdapter.QueryHandler;
-
 import android.app.ExpandableListActivity;
 import android.app.SearchManager;
-import android.content.AsyncQueryHandler;
-import android.content.BroadcastReceiver;
-import android.content.ComponentName;
-import android.content.ContentResolver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.ServiceConnection;
+import android.content.*;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.CursorWrapper;
@@ -40,28 +30,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.SparseArray;
-import android.view.ContextMenu;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.SubMenu;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
+import android.view.*;
 import android.view.ContextMenu.ContextMenuInfo;
-import android.widget.ExpandableListView;
-import android.widget.ImageView;
-import android.widget.SectionIndexer;
-import android.widget.SimpleCursorTreeAdapter;
-import android.widget.TextView;
+import android.widget.*;
 import android.widget.ExpandableListView.ExpandableListContextMenuInfo;
-
-import java.text.Collator;
+import com.android.music.MusicUtils.ServiceToken;
 
 
 public class ArtistAlbumBrowserActivity extends ExpandableListActivity

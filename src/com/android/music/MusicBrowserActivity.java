@@ -16,15 +16,13 @@
 
 package com.android.music;
 
-import com.android.music.MusicUtils.ServiceToken;
-
 import android.app.Activity;
 import android.content.ComponentName;
-import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
+import com.android.music.MusicUtils.ServiceToken;
 
 public class MusicBrowserActivity extends Activity
     implements MusicUtils.Defs {

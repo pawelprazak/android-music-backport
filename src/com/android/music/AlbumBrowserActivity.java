@@ -16,18 +16,9 @@
 
 package com.android.music;
 
-import com.android.music.MusicUtils.ServiceToken;
-
 import android.app.ListActivity;
 import android.app.SearchManager;
-import android.content.AsyncQueryHandler;
-import android.content.BroadcastReceiver;
-import android.content.ComponentName;
-import android.content.ContentResolver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.ServiceConnection;
+import android.content.*;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -42,28 +33,11 @@ import android.os.IBinder;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.ContextMenu;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.SubMenu;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
+import android.view.*;
 import android.view.ContextMenu.ContextMenuInfo;
-import android.widget.Adapter;
-import android.widget.AlphabetIndexer;
-import android.widget.CursorAdapter;
-import android.widget.ExpandableListView;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.SectionIndexer;
-import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
-
-import java.text.Collator;
+import android.widget.*;
+import com.android.music.MusicUtils.ServiceToken;
 
 public class AlbumBrowserActivity extends ListActivity
     implements View.OnCreateContextMenuListener, MusicUtils.Defs, ServiceConnection
