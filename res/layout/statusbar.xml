@@ -34,7 +34,7 @@
         android:orientation="vertical">
 
         <TextView android:id="@+id/trackname"
-            style="@android:style/TextAppearance.StatusBar.EventContent.Title"
+            style="@android:style/TextAppearance.Medium.Inverse"
             android:focusable="true"
             android:ellipsize="marquee"
             android:singleLine="true"
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content" />
 
         <TextView android:id="@+id/artistalbum"
-            style="@android:style/TextAppearance.StatusBar.EventContent"
+            style="@android:style/TextAppearance.Small.Inverse"
             android:layout_gravity="left"
             android:maxLines="2"
             android:scrollHorizontally="true"
