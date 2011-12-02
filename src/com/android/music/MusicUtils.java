@@ -1197,12 +1197,7 @@ public class MusicUtils {
             return;
         }
         try {
-            boolean withtabs = false;
-            Intent intent = a.getIntent();
-            if (intent != null) {
-                withtabs = intent.getBooleanExtra("withtabs", false);
-            }
-            if (true && MusicUtils.sService != null && MusicUtils.sService.getAudioId() != -1) {
+            if (MusicUtils.sService != null && MusicUtils.sService.getAudioId() != -1) {
                 TextView title = (TextView) nowPlayingView.findViewById(R.id.title);
                 TextView artist = (TextView) nowPlayingView.findViewById(R.id.artist);
                 title.setText(MusicUtils.sService.getTrackName());
