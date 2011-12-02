@@ -126,10 +126,10 @@ public class MusicUtils {
     }
     
     public static IMediaPlaybackService sService = null;
-    private static HashMap<Context, ServiceBinder> sConnectionMap = new HashMap<Context, ServiceBinder>();
+    private static final HashMap<Context, ServiceBinder> sConnectionMap = new HashMap<Context, ServiceBinder>();
 
     public static class ServiceToken {
-        ContextWrapper mWrappedContext;
+        final ContextWrapper mWrappedContext;
         ServiceToken(ContextWrapper context) {
             mWrappedContext = context;
         }
@@ -175,7 +175,7 @@ public class MusicUtils {
     }
 
     private static class ServiceBinder implements ServiceConnection {
-        ServiceConnection mCallback;
+        final ServiceConnection mCallback;
         ServiceBinder(ServiceConnection callback) {
             mCallback = callback;
         }
@@ -422,10 +422,8 @@ public class MusicUtils {
     }
 
     public static void clearPlaylist(Context context, int plid) {
-        
         Uri uri = MediaStore.Audio.Playlists.Members.getContentUri("external", plid);
         context.getContentResolver().delete(uri, null, null);
-        return;
     }
     
     public static void deleteTracks(Context context, long [] list) {
@@ -704,8 +702,8 @@ public class MusicUtils {
      *  makeTimeString().
      *  This Formatter/StringBuilder are also used by makeAlbumSongsLabel()
      */
-    private static StringBuilder sFormatBuilder = new StringBuilder();
-    private static Formatter sFormatter = new Formatter(sFormatBuilder, Locale.getDefault());
+    private static final StringBuilder sFormatBuilder = new StringBuilder();
+    private static final Formatter sFormatter = new Formatter(sFormatBuilder, Locale.getDefault());
     private static final Object[] sTimeArgs = new Object[5];
 
     public static String makeTimeString(Context context, long secs) {
@@ -797,7 +795,7 @@ public class MusicUtils {
     // A really simple BitmapDrawable-like class, that doesn't do
     // scaling, dithering or filtering.
     private static class FastBitmapDrawable extends Drawable {
-        private Bitmap mBitmap;
+        private final Bitmap mBitmap;
         public FastBitmapDrawable(Bitmap b) {
             mBitmap = b;
         }
@@ -1272,8 +1270,8 @@ public class MusicUtils {
     }
 
     static class LogEntry {
-        Object item;
-        long time;
+        final Object item;
+        final long time;
 
         LogEntry(Object o) {
             item = o;
@@ -1291,9 +1289,9 @@ public class MusicUtils {
         }
     }
 
-    private static LogEntry[] sMusicLog = new LogEntry[100];
+    private static final LogEntry[] sMusicLog = new LogEntry[100];
     private static int sLogPtr = 0;
-    private static Time sTime = new Time();
+    private static final Time sTime = new Time();
 
     static void debugLog(Object o) {
 
