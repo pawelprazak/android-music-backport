@@ -31,12 +31,13 @@ public class MediaButtonIntentReceiver extends BroadcastReceiver {
 
     private static final int MSG_LONGPRESS_TIMEOUT = 1;
     private static final int LONG_PRESS_DELAY = 1000;
+    private static final int DOUBLE_PRESS_DELAY = 300;
 
     private static long mLastClickTime = 0;
     private static boolean mDown = false;
     private static boolean mLaunched = false;
 
-    private static Handler mHandler = new Handler() {
+    private static final Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -117,7 +118,7 @@ public class MediaButtonIntentReceiver extends BroadcastReceiver {
                         Intent i = new Intent(context, MediaPlaybackService.class);
                         i.setAction(MediaPlaybackService.SERVICECMD);
                         if (keycode == KeyEvent.KEYCODE_HEADSETHOOK &&
-                                eventtime - mLastClickTime < 300) {
+                                eventtime - mLastClickTime < DOUBLE_PRESS_DELAY) {
                             i.putExtra(MediaPlaybackService.CMDNAME, MediaPlaybackService.CMDNEXT);
                             context.startService(i);
                             mLastClickTime = 0;
