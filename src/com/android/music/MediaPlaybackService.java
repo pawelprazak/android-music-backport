@@ -1377,7 +1377,7 @@ public class MediaPlaybackService extends Service {
             int idx = -1;
             while(true) {
                 idx = mRand.nextInt(mAutoShuffleList.length);
-                if (!wasRecentlyUsed(idx, lookback)) {
+                if (wasNotRecentlyUsed(idx, lookback)) {
                     break;
                 }
                 lookback /= 2;
@@ -1397,11 +1397,11 @@ public class MediaPlaybackService extends Service {
 
     // check that the specified idx is not in the history (but only look at at
     // most lookbacksize entries in the history)
-    private boolean wasRecentlyUsed(int idx, int lookbacksize) {
+    private boolean wasNotRecentlyUsed(int idx, int lookbacksize) {
 
         // early exit to prevent infinite loops in case idx == mPlayPos
         if (lookbacksize == 0) {
-            return false;
+            return true;
         }
 
         int histsize = mHistory.size();
@@ -1413,10 +1413,10 @@ public class MediaPlaybackService extends Service {
         for (int i = 0; i < lookbacksize; i++) {
             long entry = mHistory.get(maxidx - i);
             if (entry == idx) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     // A simple variation of Random that makes sure that the
