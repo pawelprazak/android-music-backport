@@ -1,5 +1,4 @@
-/* //device/samples/SampleCode/src/com/android/samples/app/RemoteServiceInterface.java
-**
+/* 
 ** Copyright 2007, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License"); 
@@ -16,8 +15,6 @@
 */
 
 package com.android.music;
-
-import android.graphics.Bitmap;
 
 interface IMediaPlaybackService
 {
