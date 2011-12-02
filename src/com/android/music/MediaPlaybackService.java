@@ -433,11 +433,9 @@ public class MediaPlaybackService extends Service {
 
     private void reloadQueue() {
         String q = null;
-        
-        boolean newstyle = false;
+
         int id = mCardId;
         if (mPreferences.contains("cardid")) {
-            newstyle = true;
             id = mPreferences.getInt("cardid", ~mCardId);
         }
         if (id == mCardId) {
@@ -892,7 +890,6 @@ public class MediaPlaybackService extends Service {
                 addToPlayList(list, -1);
                 notifyChange(QUEUE_CHANGED);
             }
-            int oldpos = mPlayPos;
             if (position >= 0) {
                 mPlayPos = position;
             } else {
@@ -1212,7 +1209,7 @@ public class MediaPlaybackService extends Service {
                     return;
                 }
                 Integer pos = mHistory.remove(histsize - 1);
-                mPlayPos = pos.intValue();
+                mPlayPos = pos;
             } else {
                 if (mPlayPos > 0) {
                     mPlayPos--;
