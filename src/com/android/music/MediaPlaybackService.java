@@ -98,13 +98,13 @@ public class MediaPlaybackService extends Service {
     private long [] mAutoShuffleList = null;
     private long [] mPlayList = null;
     private int mPlayListLen = 0;
-    private Vector<Integer> mHistory = new Vector<Integer>(MAX_HISTORY_SIZE);
+    private final Vector<Integer> mHistory = new Vector<Integer>(MAX_HISTORY_SIZE);
     private Cursor mCursor;
     private int mPlayPos = -1;
     private static final String LOGTAG = "MediaPlaybackService";
     private final Shuffler mRand = new Shuffler();
     private int mOpenFailedCounter = 0;
-    String[] mCursorCols = new String[] {
+    final String[] mCursorCols = new String[] {
             "audio._id AS _id",             // index must match IDCOLIDX below
             MediaStore.Audio.Media.ARTIST,
             MediaStore.Audio.Media.ALBUM,
@@ -135,14 +135,14 @@ public class MediaPlaybackService extends Service {
     // This will have to change if we want to support multiple simultaneous cards.
     private int mCardId;
     
-    private MediaAppWidgetProvider mAppWidgetProvider = MediaAppWidgetProvider.getInstance();
+    private final MediaAppWidgetProvider mAppWidgetProvider = MediaAppWidgetProvider.getInstance();
     
     // interval after which we stop the service when idle
     private static final int IDLE_DELAY = 60000;
 
     //private RemoteControlClient mRemoteControlClient;
 
-    private Handler mMediaplayerHandler = new Handler() {
+    private final Handler mMediaplayerHandler = new Handler() {
         float mCurrentVolume = 1.0f;
         @Override
         public void handleMessage(Message msg) {
@@ -234,7 +234,7 @@ public class MediaPlaybackService extends Service {
         }
     };
 
-    private BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
@@ -269,7 +269,7 @@ public class MediaPlaybackService extends Service {
         }
     };
 
-    private OnAudioFocusChangeListener mAudioFocusListener = new OnAudioFocusChangeListener() {
+    private final OnAudioFocusChangeListener mAudioFocusListener = new OnAudioFocusChangeListener() {
         public void onAudioFocusChange(int focusChange) {
             mMediaplayerHandler.obtainMessage(FOCUSCHANGE, focusChange, 0).sendToTarget();
         }
@@ -667,7 +667,7 @@ public class MediaPlaybackService extends Service {
         return true;
     }
     
-    private Handler mDelayedStopHandler = new Handler() {
+    private final Handler mDelayedStopHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             // Check again to make sure nothing is playing right now
@@ -1424,7 +1424,7 @@ public class MediaPlaybackService extends Service {
     // previously, unless the interval is 1.
     private static class Shuffler {
         private int mPrevious;
-        private Random mRandom = new Random();
+        private final Random mRandom = new Random();
         public int nextInt(int interval) {
             int ret;
             do {
@@ -1799,7 +1799,7 @@ public class MediaPlaybackService extends Service {
             mHandler = handler;
         }
 
-        MediaPlayer.OnCompletionListener listener = new MediaPlayer.OnCompletionListener() {
+        final MediaPlayer.OnCompletionListener listener = new MediaPlayer.OnCompletionListener() {
             public void onCompletion(MediaPlayer mp) {
                 // Acquire a temporary wakelock, since when we return from
                 // this callback the MediaPlayer will release its wakelock
@@ -1812,7 +1812,7 @@ public class MediaPlaybackService extends Service {
             }
         };
 
-        MediaPlayer.OnErrorListener errorListener = new MediaPlayer.OnErrorListener() {
+        final MediaPlayer.OnErrorListener errorListener = new MediaPlayer.OnErrorListener() {
             public boolean onError(MediaPlayer mp, int what, int extra) {
                 switch (what) {
                 case MediaPlayer.MEDIA_ERROR_SERVER_DIED:
@@ -1857,7 +1857,7 @@ public class MediaPlaybackService extends Service {
      * has a remote reference to the stub.
      */
     static class ServiceStub extends IMediaPlaybackService.Stub {
-        WeakReference<MediaPlaybackService> mService;
+        final WeakReference<MediaPlaybackService> mService;
         
         ServiceStub(MediaPlaybackService service) {
             mService = new WeakReference<MediaPlaybackService>(service);
