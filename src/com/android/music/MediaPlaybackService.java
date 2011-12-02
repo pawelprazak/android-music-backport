@@ -140,8 +140,6 @@ public class MediaPlaybackService extends Service {
     // interval after which we stop the service when idle
     private static final int IDLE_DELAY = 60000;
 
-    //private RemoteControlClient mRemoteControlClient;
-
     private final Handler mMediaplayerHandler = new Handler() {
         float mCurrentVolume = 1.0f;
         @Override
@@ -286,18 +284,7 @@ public class MediaPlaybackService extends Service {
         ComponentName rec = new ComponentName(getPackageName(),
                 MediaButtonIntentReceiver.class.getName());
         mAudioManager.registerMediaButtonEventReceiver(rec);
-        // TODO update to new constructor
-//        mRemoteControlClient = new RemoteControlClient(rec);
-//        mAudioManager.registerRemoteControlClient(mRemoteControlClient);
-//
-//        int flags = RemoteControlClient.FLAG_KEY_MEDIA_PREVIOUS
-//                | RemoteControlClient.FLAG_KEY_MEDIA_NEXT
-//                | RemoteControlClient.FLAG_KEY_MEDIA_PLAY
-//                | RemoteControlClient.FLAG_KEY_MEDIA_PAUSE
-//                | RemoteControlClient.FLAG_KEY_MEDIA_PLAY_PAUSE
-//                | RemoteControlClient.FLAG_KEY_MEDIA_STOP;
-//        mRemoteControlClient.setTransportControlFlags(flags);
-        
+      
         mPreferences = getSharedPreferences("Music", MODE_WORLD_READABLE | MODE_WORLD_WRITEABLE);
         mCardId = MusicUtils.getCardId(this);
         
@@ -340,7 +327,6 @@ public class MediaPlaybackService extends Service {
         mPlayer = null;
 
         mAudioManager.abandonAudioFocus(mAudioFocusListener);
-        //mAudioManager.unregisterRemoteControlClient(mRemoteControlClient);
         
         // make sure there aren't any other messages coming
         mDelayedStopHandler.removeCallbacksAndMessages(null);
@@ -756,22 +742,8 @@ public class MediaPlaybackService extends Service {
         sendStickyBroadcast(i);
 
         if (what.equals(PLAYSTATE_CHANGED)) {
-//            mRemoteControlClient.setPlaybackState(isPlaying() ?
-//                    RemoteControlClient.PLAYSTATE_PLAYING : RemoteControlClient.PLAYSTATE_PAUSED);
         } else if (what.equals(META_CHANGED)) {
-//            RemoteControlClient.MetadataEditor ed = mRemoteControlClient.editMetadata(true);
-//            ed.putString(MediaMetadataRetriever.METADATA_KEY_TITLE, getTrackName());
-//            ed.putString(MediaMetadataRetriever.METADATA_KEY_ALBUM, getAlbumName());
-//            ed.putString(MediaMetadataRetriever.METADATA_KEY_ARTIST, getArtistName());
-//            ed.putLong(MediaMetadataRetriever.METADATA_KEY_DURATION, duration());
-//            Bitmap b = MusicUtils.getArtwork(this, getAudioId(), getAlbumId(), false);
-//            if (b != null) {
-//                ed.putBitmap(MetadataEditor.BITMAP_KEY_ARTWORK, b);
-//            }
-//            ed.apply();
-        }
-
-        if (what.equals(QUEUE_CHANGED)) {
+        } else if (what.equals(QUEUE_CHANGED)) {
             saveQueue(true);
         } else {
             saveQueue(false);
