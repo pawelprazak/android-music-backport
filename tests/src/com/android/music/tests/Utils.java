@@ -12,7 +12,7 @@ public class Utils {
         public static void v(String msg) { android.util.Log.v(TAG, msg); }
     }
     public static final String TAG = "MusicTests";
-    private static final int WAIT_SHORT_TIME = 1000;
+    public static final int WAIT_SHORT_TIME = 1000;
     private static final int WAIT_LONG_TIME = 2000;
     private static final int WAIT_VERY_LONG_TIME = 6000;
 

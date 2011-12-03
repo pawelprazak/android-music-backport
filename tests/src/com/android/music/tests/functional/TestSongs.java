@@ -32,6 +32,7 @@ import com.android.music.TrackBrowserActivity;
 import com.android.music.tests.MusicPlayerNames;
 import com.android.music.tests.Utils;
 import com.android.music.tests.Utils.Log;
+import com.jayway.android.robotium.solo.Solo;
 
 import java.io.*;
 
@@ -39,38 +40,20 @@ import java.io.*;
  * Junit / Instrumentation test case for the TrackBrowserActivity
  */
 public class TestSongs extends ActivityInstrumentationTestCase2<TrackBrowserActivity> {
+    private Solo solo;
+
     public TestSongs() {
         super("com.android.music", TrackBrowserActivity.class);
     }
-
-    @Override
+    
+    @Override 
     protected void setUp() throws Exception {
-        super.setUp();
+        solo = new Solo(getInstrumentation(), getActivity());
     }
 
     @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * Add 10 new playlists with unsorted title order
-     */
-    public void addNewPlaylist() {
-        Instrumentation inst = getInstrumentation();
-        for (int i = 0; i < MusicPlayerNames.NO_OF_PLAYLIST; i++) {
-            inst.invokeContextMenuAction(getActivity(), MusicUtils.Defs.NEW_PLAYLIST, 0);
-            Utils.waitShortTime();
-            //Remove the default playlist name
-            for (int j = 0; j < MusicPlayerNames.DEFAULT_PLAYLIST_LENGTH; j++)
-                inst.sendKeyDownUpSync(KeyEvent.KEYCODE_DEL);
-            inst.sendStringSync(MusicPlayerNames.unsortedPlaylistTitle[i]);
-            inst.sendKeyDownUpSync(KeyEvent.KEYCODE_DPAD_DOWN);
-            inst.sendKeyDownUpSync(KeyEvent.KEYCODE_DPAD_CENTER);
-            Utils.waitLongTime();
-            inst.sendKeyDownUpSync(KeyEvent.KEYCODE_DPAD_DOWN);
-            Utils.waitLongTime();
-        }
+    public void tearDown() throws Exception {
+        solo.finishOpenedActivities();
     }
 
     private void copy(File src, File dst) throws IOException {
@@ -98,38 +81,6 @@ public class TestSongs extends ActivityInstrumentationTestCase2<TrackBrowserActi
         getActivity().sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://"
                 + Environment.getExternalStorageDirectory())));
         Utils.waitVeryLongTime();
-    }
-
-
-    /**
-     * Test case 1: tests the new playlist added with sorted order.
-     * Verification: The new playlist title should be sorted in alphabetical order
-     */
-    @LargeTest
-    public void testAddPlaylist() throws Exception {
-        Cursor mCursor;
-        addNewPlaylist();
-
-        //Verify the new playlist is created, check the playlist table
-        String[] cols = new String[]{
-                MediaStore.Audio.Playlists.NAME
-        };
-        ContentResolver resolver = getActivity().getContentResolver();
-        if (resolver == null) {
-            System.out.println("resolver = null");
-        } else {
-            String whereclause = MediaStore.Audio.Playlists.NAME + " != ''";
-            mCursor = resolver.query(MediaStore.Audio.Playlists.EXTERNAL_CONTENT_URI,
-                    cols, whereclause, null,
-                    MediaStore.Audio.Playlists.NAME);
-            //Check the new playlist
-            mCursor.moveToFirst();
-
-            for (int j = 0; j < 10; j++) {
-                assertEquals("New sorted Playlist title:", MusicPlayerNames.expectedPlaylistTitle[j], mCursor.getString(0));
-                mCursor.moveToNext();
-            }
-        }
     }
 
     /**

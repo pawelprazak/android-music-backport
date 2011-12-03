@@ -26,23 +26,6 @@ import android.os.Environment;
  */
 public class MusicPlayerNames {
 
-  //Expected result of the sorted playlistname
-    public static final String expectedPlaylistTitle[] = { "**1E?:|}{[]~~.,;'",
-        "//><..", "0123456789",
-        "0random@112", "MyPlaylist", "UPPERLETTER",
-        "combination011", "loooooooog",
-        "normal", "~!@#$%^&*()_+"
-    };
-
-  //Unsorted input playlist name
-    public static final String unsortedPlaylistTitle[] = { "//><..","MyPlaylist",
-        "0random@112", "UPPERLETTER","normal",
-        "combination011", "0123456789",
-        "~!@#$%^&*()_+","**1E?:|}{[]~~.,;'",
-        "loooooooog"
-    };
-
-    public static int NO_OF_PLAYLIST = 10;
     public static int SKIP_WAIT_TIME = 500;
     public static int DEFAULT_PLAYLIST_LENGTH = 15;
     public static int NO_ALBUMS_TOBE_PLAYED = 50;
