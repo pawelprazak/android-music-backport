@@ -17,7 +17,6 @@
 package com.android.music.tests;
 
 import com.android.music.tests.stress.AlbumsPlaybackStress;
-import com.android.music.tests.stress.MusicPlaybackStress;
 
 import android.test.InstrumentationTestRunner;
 import android.test.InstrumentationTestSuite;

@@ -17,10 +17,8 @@
 package com.android.music.tests;
 
 import android.app.Activity;
-import android.test.LaunchPerformanceBase;
 import android.os.Bundle;
-
-import java.util.Map;
+import android.test.LaunchPerformanceBase;
 
 /**
  * Instrumentation class for Media Player launch performance testing.
