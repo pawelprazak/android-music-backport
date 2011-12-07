@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package android.test;
+package com.android.music.tests;
 
 import android.app.Instrumentation;
 import android.content.Intent;
