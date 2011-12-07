@@ -578,7 +578,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
                         b.putString("description", f);
                         b.putLongArray("items", list);
                         intent = new Intent();
-                        intent.setClass(this, DeleteItems.class);
+                        intent.setClass(this, ConfirmDeleteItems.class);
                         intent.putExtras(b);
                         startActivityForResult(intent, -1);
                     }

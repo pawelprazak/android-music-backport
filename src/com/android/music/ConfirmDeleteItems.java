@@ -25,7 +25,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class DeleteItems extends Activity
+public class ConfirmDeleteItems extends Activity
 {
     private TextView mPrompt;
     private Button mButton;
@@ -41,11 +41,11 @@ public class DeleteItems extends Activity
         getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
                                     WindowManager.LayoutParams.WRAP_CONTENT);
 
-        mPrompt = (TextView)findViewById(R.id.prompt);
+        mPrompt = (TextView) findViewById(R.id.prompt);
         mButton = (Button) findViewById(R.id.delete);
         mButton.setOnClickListener(mButtonClicked);
 
-        ((Button)findViewById(R.id.cancel)).setOnClickListener(new View.OnClickListener() {
+        ((Button) findViewById(R.id.cancel)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 finish();
             }
@@ -61,7 +61,7 @@ public class DeleteItems extends Activity
     private View.OnClickListener mButtonClicked = new View.OnClickListener() {
         public void onClick(View v) {
             // delete the selected item(s)
-            MusicUtils.deleteTracks(DeleteItems.this, mItemList);
+            MusicUtils.deleteTracks(ConfirmDeleteItems.this, mItemList);
             finish();
         }
     };

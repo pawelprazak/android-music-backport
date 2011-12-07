@@ -412,7 +412,7 @@ public class ArtistAlbumBrowserActivity extends ExpandableListActivity
                 b.putString("description", desc);
                 b.putLongArray("items", list);
                 Intent intent = new Intent();
-                intent.setClass(this, DeleteItems.class);
+                intent.setClass(this, ConfirmDeleteItems.class);
                 intent.putExtras(b);
                 startActivityForResult(intent, -1);
                 return true;
