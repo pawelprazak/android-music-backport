@@ -39,12 +39,12 @@ public class MusicPlayerLaunchPerformance extends LaunchPerformanceBase {
     }
 
     /**
-     * Calls LaunchApp and finish.
+     * Calls launchApp and finish.
      */
     @Override
     public void onStart() {
         super.onStart();
-        LaunchApp();
+        launchApp();
         finish(Activity.RESULT_OK, mResults);
     }
 }

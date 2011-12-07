@@ -45,7 +45,7 @@ public class LaunchPerformanceBase extends Instrumentation {
      *
      * @hide
      */
-    protected void LaunchApp() {
+    protected void launchApp() {
         startActivitySync(mIntent);
         waitForIdleSync();
     }

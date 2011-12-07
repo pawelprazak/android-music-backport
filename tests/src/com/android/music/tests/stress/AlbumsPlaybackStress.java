@@ -49,6 +49,7 @@ public class AlbumsPlaybackStress extends ActivityInstrumentationTestCase2<Album
     */
     @LargeTest
     public void testAlbumPlay() {
+        getActivity();  //  to prevent INJECT_EVENTS permission error
         Instrumentation inst = getInstrumentation();
         try {
             inst.sendKeyDownUpSync(KeyEvent.KEYCODE_DPAD_RIGHT);

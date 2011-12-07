@@ -16,11 +16,10 @@
 
 package com.android.music.tests;
 
-import com.android.music.tests.stress.AlbumsPlaybackStress;
-
 import android.test.InstrumentationTestRunner;
 import android.test.InstrumentationTestSuite;
-
+import com.android.music.tests.stress.AlbumsPlaybackStress;
+import com.android.music.tests.stress.MusicPlaybackStress;
 import junit.framework.TestSuite;
 
 /**
@@ -37,7 +36,7 @@ public class MusicPlayerStressTestRunner extends InstrumentationTestRunner {
   @Override
     public TestSuite getAllTests() {
       TestSuite suite = new InstrumentationTestSuite(this);  
-      //suite.addTestSuite(MusicPlaybackStress.class);
+      suite.addTestSuite(MusicPlaybackStress.class);
       suite.addTestSuite(AlbumsPlaybackStress.class);
       return suite;
     }

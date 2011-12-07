@@ -18,9 +18,8 @@ package com.android.music.tests;
 
 import android.test.InstrumentationTestRunner;
 import android.test.InstrumentationTestSuite;
-import com.android.music.tests.functional.TestSongs;
 import com.android.music.tests.functional.TestPlaylist;
-
+import com.android.music.tests.functional.TestSongs;
 import junit.framework.TestSuite;
 
 

@@ -17,24 +17,22 @@
 package com.android.music.tests;
 
 import android.app.Instrumentation;
-import com.android.music.TrackBrowserActivity;
-import android.view.KeyEvent;
-import android.widget.ListView;
-
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.LargeTest;
+import android.view.KeyEvent;
+import android.widget.ListView;
+import com.android.music.TrackBrowserActivity;
 
 /**
  * Junit / Instrumentation test case for the Music Player
  */
 
-public class MusicPlayerStability extends ActivityInstrumentationTestCase2 <TrackBrowserActivity>{
+public class MusicPlayerStability extends ActivityInstrumentationTestCase2 <TrackBrowserActivity> {
     private static String TAG = "musicplayerstability";
     private static int PLAY_TIME = 30000;
-    private ListView mTrackList;
 
     public MusicPlayerStability() {
-        super("com.android.music",TrackBrowserActivity.class);
+        super("com.android.music", TrackBrowserActivity.class);
     }
 
     @Override
@@ -50,7 +48,7 @@ public class MusicPlayerStability extends ActivityInstrumentationTestCase2 <Trac
 
     /**
      * Test case 1: This test case is for the power and general stability
-     * measurment. We don't need to do the validation. This test case simply
+     * measurement. We don't need to do the validation. This test case simply
      * play the mp3 for 30 seconds then stop.
      * The sdcard should have the target mp3 files.
      */
@@ -62,8 +60,8 @@ public class MusicPlayerStability extends ActivityInstrumentationTestCase2 <Trac
             //Make sure the song list shown up
             Thread.sleep(2000);
             inst.sendKeyDownUpSync(KeyEvent.KEYCODE_DPAD_DOWN);
-            mTrackList = getActivity().getListView();
-            int scrollCount = mTrackList.getMaxScrollAmount();
+            ListView trackList = getActivity().getListView();
+            int scrollCount = trackList.getMaxScrollAmount();
             //Make sure there is at least one song in the sdcard
             if (scrollCount != -1) {
                 inst.sendKeyDownUpSync(KeyEvent.KEYCODE_DPAD_CENTER);
