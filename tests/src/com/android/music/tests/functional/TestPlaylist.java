@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Junit / Instrumentation test case for the PlaylistBrowserActivity
+ * Instrumentation test case for the PlaylistBrowserActivity
  * This test case need to run in the landscape mode and opened keyboard
  */
 public class TestPlaylist extends ActivityInstrumentationTestCase2<PlaylistBrowserActivity> {
@@ -39,7 +39,7 @@ public class TestPlaylist extends ActivityInstrumentationTestCase2<PlaylistBrows
     public static final String ORIGINAL_PLAYLIST_NAME = "Original_playlist_name";
     public static final String RENAMED_PLAYLIST_NAME = "Rename_playlist_name";
 
-    //Expected result of the sorted playlistname
+    //Expected result of the sorted playlist name
     public static final String expectedPlaylistTitles[] = {
             "**1E?:|}{[]~~.,;'",
             "//><..", "0123456789",
@@ -72,6 +72,7 @@ public class TestPlaylist extends ActivityInstrumentationTestCase2<PlaylistBrows
     @Override
     public void tearDown() throws Exception {
         solo.finishOpenedActivities();
+        super.tearDown();
     }
 
     /**
