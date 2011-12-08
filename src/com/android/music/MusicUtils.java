@@ -1277,8 +1277,9 @@ public class MusicUtils {
         }
 
         void dump(PrintWriter out) {
-            sTime.set(time);
-            out.print(sTime.toString() + " : ");
+            Time time1 = new Time();
+            time1.set(time);
+            out.print(time1.toString() + " : ");
             if (item instanceof Exception) {
                 ((Exception)item).printStackTrace(out);
             } else {
@@ -1289,7 +1290,6 @@ public class MusicUtils {
 
     private static final LogEntry[] sMusicLog = new LogEntry[100];
     private static int sLogPtr = 0;
-    private static final Time sTime = new Time();
 
     static void debugLog(Object o) {
 
