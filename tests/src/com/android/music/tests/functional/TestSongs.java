@@ -65,7 +65,8 @@ public class TestSongs extends ActivityInstrumentationTestCase2<TrackBrowserActi
 
     /**
      * Test case 1: Delete a song
-     * Test case precondition: Copy a song and rescan the sdcard
+     * Test case precondition: Copy a song with
+     *     adb push tests/GOLDEN.mp3 /sdcard/media_api/music/GOLDEN.mp3
      * Verification: The song is deleted from the sdcard and mediastore
      * @throws Exception exceptions
      */
