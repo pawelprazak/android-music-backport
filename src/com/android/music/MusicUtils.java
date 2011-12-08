@@ -1176,8 +1176,9 @@ public class MusicUtils {
             case R.id.nowplayingtab:
                 intent = new Intent(a, MediaPlaybackActivity.class);
                 a.startActivity(intent);
-                // fall through and return
+                break;
             default:
+                intent.setDataAndType(Uri.EMPTY, "vnd.android.cursor.dir/artistalbum");
                 return;
         }
         intent.putExtra("withtabs", true);
