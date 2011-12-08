@@ -47,6 +47,7 @@ import java.util.Locale;
 public class MusicUtils {
 
     private static final String TAG = "MusicUtils";
+    public static final boolean TRACE = false;
 
     public interface Defs {
         public final static int OPEN_URL = 0;
