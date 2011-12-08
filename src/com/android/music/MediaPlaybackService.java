@@ -1190,7 +1190,6 @@ public class MediaPlaybackService extends Service {
                 }
             }
             saveBookmarkIfNeeded();
-            stop(false);
             openCurrent();
             play();
             notifyChange(META_CHANGED);
@@ -1283,7 +1282,6 @@ public class MediaPlaybackService extends Service {
                 }
             }
             saveBookmarkIfNeeded();
-            stop(false);
             openCurrent();
             play();
             notifyChange(META_CHANGED);
