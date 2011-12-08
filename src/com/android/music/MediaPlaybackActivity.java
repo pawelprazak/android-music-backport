@@ -67,6 +67,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
     @Override
     public void onCreate(Bundle icicle)
     {
+        if (MusicUtils.TRACE) { android.os.Debug.startMethodTracing("/sdcard/mediaplayeractivity"); }
         super.onCreate(icicle);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
@@ -477,6 +478,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
         mAlbumArtWorker.quit();
         super.onDestroy();
         //System.out.println("***************** playback activity onDestroy\n");
+        if (MusicUtils.TRACE) { android.os.Debug.stopMethodTracing(); }
     }
 
     @Override

@@ -1198,6 +1198,7 @@ public class MediaPlaybackService extends Service {
     }
 
     public void next(boolean force) {
+        if (MusicUtils.TRACE) Debug.startMethodTracing("/sdcard/next");
         synchronized (this) {
             if (mPlayListLen <= 0) {
                 Log.d(LOGTAG, "No play queue");
@@ -1290,6 +1291,7 @@ public class MediaPlaybackService extends Service {
                 doAutoShuffleUpdate();
             }
         }
+        if (MusicUtils.TRACE) Debug.stopMethodTracing();
     }
     
     private void gotoIdleState() {
