@@ -29,19 +29,19 @@
 
         <ImageView
             android:id="@+id/album"
-            android:background="@drawable/album_border_large"
-            android:layout_width="200dip"
-            android:layout_height="200dip"
-            android:layout_marginLeft="4dip"
-            android:layout_marginRight="0dip"
-            android:layout_marginTop="4dip" />
+            android:background="#6666"
+            android:layout_width="186dip"
+            android:layout_height="186dip"
+            android:layout_marginLeft="12dip"
+            android:layout_marginTop="12dip"
+            android:layout_marginRight="8dip"
+            android:layout_marginBottom="12dip" />
 
         <!-- This is the LinearLayout that contains function buttons and album/artist/track info -->
         <LinearLayout
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginLeft="1dip"
             android:orientation="vertical">
 
             <LinearLayout

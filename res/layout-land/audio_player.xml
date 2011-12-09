@@ -29,11 +29,11 @@
 
         <ImageView
             android:id="@+id/album"
-            android:background="@drawable/album_border_large"
+            android:background="#6666"
             android:layout_width="183dip"
             android:layout_height="183dip"
             android:layout_marginLeft="12dip"
-            android:layout_marginRight="15dip"
+            android:layout_marginRight="12dip"
             android:layout_marginTop="12dip" />
 
         <!-- This is the LinearLayout that contains function buttons and album/artist/track info -->

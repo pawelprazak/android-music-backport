@@ -21,7 +21,7 @@
 
     <ImageView
         android:id="@+id/album"
-        android:background="@drawable/album_border_large"
+        android:background="#666"
         android:layout_width="270dip"
         android:layout_height="270dip"
         android:layout_gravity="center_horizontal"

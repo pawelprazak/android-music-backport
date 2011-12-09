@@ -28,7 +28,7 @@
 
         <ImageView
             android:id="@+id/album"
-            android:background="@drawable/album_border_large"
+            android:background="#6666"
             android:layout_width="220dip"
             android:layout_height="220dip"
             android:layout_marginLeft="4dip"
