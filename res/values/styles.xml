@@ -72,8 +72,14 @@
         <item name="android:indeterminateDrawable">
             @android:drawable/progress_indeterminate_horizontal
         </item>
-        <item name="android:minHeight">1dip</item>
+        <item name="android:minHeight">4dip</item>
         <item name="android:maxHeight">10dip</item>
+        <item name="android:thumb">@drawable/seek_thumb</item>
+        <item name="android:thumbOffset">8dip</item>
+        <item name="android:layout_marginLeft">5dip</item>
+        <item name="android:layout_marginRight">5dip</item>
+        <item name="android:layout_marginTop">18dip</item>
+        <item name="android:layout_marginBottom">24dip</item>
     </style>
     
 </resources>

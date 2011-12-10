@@ -77,15 +77,18 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.audio_player);
 
+        mAlbum = (ImageView) findViewById(R.id.album);
         mCurrentTime = (TextView) findViewById(R.id.currenttime);
         mTotalTime = (TextView) findViewById(R.id.totaltime);
-        mProgress = (ProgressBar) findViewById(android.R.id.progress);
-        mAlbum = (ImageView) findViewById(R.id.album);
+        mProgress = (SongSeekBar) findViewById(R.id.progressbar);
+        mProgress.setOnSeekBarChangeListener(mSeekListener);
+        mProgress.setMax(1000);
+        
         mArtistName = (TextView) findViewById(R.id.artistname);
         mAlbumName = (TextView) findViewById(R.id.albumname);
         mTrackName = (TextView) findViewById(R.id.trackname);
 
-        View v = (View)mArtistName.getParent(); 
+        View v = (View)mArtistName.getParent();
         v.setOnTouchListener(this);
         v.setOnLongClickListener(this);
 
@@ -96,7 +99,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
         v = (View)mTrackName.getParent();
         v.setOnTouchListener(this);
         v.setOnLongClickListener(this);
-        
+
         mPrevButton = (RepeatingImageButton) findViewById(R.id.prev);
         mPrevButton.setOnClickListener(mPrevListener);
         mPrevButton.setRepeatListener(mRewListener, 260);
@@ -110,7 +113,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
 
         mDeviceHasDpad = (getResources().getConfiguration().navigation ==
             Configuration.NAVIGATION_DPAD);
-        
+
         mQueueButton = (ImageButton) findViewById(R.id.curplaylist);
         mQueueButton.setOnClickListener(mQueueListener);
         mShuffleButton = ((ImageButton) findViewById(R.id.shuffle));
@@ -118,11 +121,6 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
         mRepeatButton = ((ImageButton) findViewById(R.id.repeat));
         mRepeatButton.setOnClickListener(mRepeatListener);
         
-        if (mProgress instanceof SeekBar) {
-            SeekBar seeker = (SeekBar) mProgress;
-            seeker.setOnSeekBarChangeListener(mSeekListener);
-        }
-        mProgress.setMax(1000);
 
         mTouchSlop = ViewConfiguration.get(this).getScaledTouchSlop();
     }
@@ -1105,7 +1103,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
     private TextView mArtistName;
     private TextView mAlbumName;
     private TextView mTrackName;
-    private ProgressBar mProgress;
+    private SongSeekBar mProgress;
     private long mPosOverride = -1;
     private boolean mFromTouch = false;
     private long mDuration;

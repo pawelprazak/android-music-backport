@@ -29,6 +29,4 @@
           android:state_window_focused="true"
           android:drawable="@drawable/now_playing_progress_handle_selected" />
 
-    <item android:drawable="@drawable/now_playing_progress_handle_normal" />
-
 </selector>

@@ -35,10 +35,9 @@
         android:textSize="14sp"
         android:textColor="#ffffffff" />
 
-    <SeekBar android:id="@+id/progress"
+    <com.android.music.SongSeekBar style="@style/Widget.ProgressBar.Regular"
+        android:id="@+id/preview_progressbar" 
         android:background="#000000f0"
-        android:progressDrawable="@drawable/progress_horizontal"
-        android:thumb="@drawable/seek_thumb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="8dip"

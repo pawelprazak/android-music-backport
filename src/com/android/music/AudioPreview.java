@@ -90,7 +90,7 @@ public class AudioPreview extends Activity implements OnPreparedListener, OnErro
         } else {
             mLoadingText.setVisibility(View.GONE);
         }
-        mSeekBar = (SeekBar) findViewById(R.id.progress);
+        mSeekBar = (SeekBar) findViewById(R.id.preview_progressbar);
         mProgressRefresher = new Handler();
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
