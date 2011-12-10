@@ -64,7 +64,7 @@
              recents since this is accessible through a notification when
              appropriate. -->
         <activity android:name="com.android.music.MediaPlaybackActivity"
-                android:theme="@style/Music.Theme.Wallpaper.NoTitleBar.Fullscreen"
+                android:theme="@style/Music.Theme.NoTitleBar.Fullscreen"
                 android:label="@string/mediaplaybacklabel"
                 android:taskAffinity=""
                 android:launchMode="singleTask"

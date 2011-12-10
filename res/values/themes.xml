@@ -1,5 +1,6 @@
 <resources>
     <style name="Music.Theme" parent="android:Theme">
+        <item name="android:background">@color/dark_transparent</item>
     </style>
 
     <style name="Music.Theme.NoTitleBar">
