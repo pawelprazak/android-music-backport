@@ -1,0 +1,29 @@
+<resources>
+    <style name="Music.Theme" parent="android:Theme">
+    </style>
+
+    <style name="Music.Theme.NoTitleBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="Music.Theme.NoTitleBar.Fullscreen">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+        
+    <style name="Music.Theme.Wallpaper" parent="android:Theme.Wallpaper">
+        <item name="android:windowBackground">@drawable/background_dark_transparent</item>
+    </style>
+    
+    <style name="Music.Theme.Wallpaper.NoTitleBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="Music.Theme.Wallpaper.NoTitleBar.Fullscreen">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    
+</resources>

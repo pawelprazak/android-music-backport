@@ -36,7 +36,7 @@
             android:value="com.android.music.QueryBrowserActivity"
         />
         <activity android:name="com.android.music.MusicBrowserActivity"
-            android:theme="@android:style/Theme.NoTitleBar"
+            android:theme="@style/Music.Theme.NoTitleBar.Fullscreen"
             android:exported="true"
         >
             <intent-filter>
@@ -64,7 +64,7 @@
              recents since this is accessible through a notification when
              appropriate. -->
         <activity android:name="com.android.music.MediaPlaybackActivity"
-                android:theme="@android:style/Theme.NoTitleBar"
+                android:theme="@style/Music.Theme.Wallpaper.NoTitleBar.Fullscreen"
                 android:label="@string/mediaplaybacklabel"
                 android:taskAffinity=""
                 android:launchMode="singleTask"

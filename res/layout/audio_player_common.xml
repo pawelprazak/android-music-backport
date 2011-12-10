@@ -28,24 +28,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#665a5a5a"
         android:paddingTop="0dip"
         android:paddingBottom="0dip"
         android:orientation="horizontal">
 
-        <TextView android:id="@+id/currenttime"
+        <TextView style="@style/Music.TextAppearance.Medium.Shadow" 
+            android:id="@+id/currenttime"
             android:text="0:00"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:shadowColor="#ff000000"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="3"
+            android:gravity="left"
+            android:paddingLeft="5dip"
             android:layout_gravity="top"
             android:layout_weight="1"
             android:layout_width="0dip"
-            android:paddingLeft="5dip"
             android:layout_height="wrap_content" />
 
         <LinearLayout
@@ -65,15 +61,11 @@
 
         </LinearLayout>
 
-        <TextView android:id="@+id/totaltime"
+        <TextView style="@style/Music.TextAppearance.Medium.Shadow" 
+            android:id="@+id/totaltime"
             android:text="0:00"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:shadowColor="#ff000000"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="3"
             android:gravity="right"
             android:paddingRight="5dip"
             android:layout_gravity="top"

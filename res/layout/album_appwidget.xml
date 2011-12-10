@@ -34,29 +34,17 @@
         android:paddingRight="8dip"
         >
 
-        <TextView
+       <TextView style="@style/Music.AppWidgetText"
             android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/appwidget_text"
+            android:text="Title"
             android:textStyle="bold"
             android:textSize="18sp"
-            android:singleLine="true"
-            android:fadingEdge="horizontal"
-            android:fadingEdgeLength="10dip"
-            android:ellipsize="none"
             />
 
-        <TextView
+        <TextView style="@style/Music.AppWidgetText"
             android:id="@+id/artist"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/appwidget_text"
+            android:text="Artist"
             android:textSize="14sp"
-            android:singleLine="true"
-            android:fadingEdge="horizontal"
-            android:fadingEdgeLength="10dip"
-            android:ellipsize="none"
             />
     </LinearLayout>
     

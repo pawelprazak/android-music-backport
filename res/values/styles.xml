@@ -1,0 +1,79 @@
+<resources>
+    <style name="Music"></style>
+    
+    <style name="Music.TextAppearance" parent="android:TextAppearance">
+    </style>
+    
+    <style name="Music.TextAppearance.Shadow">
+        <item name="android:shadowColor">@color/dark_transparent</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">3</item>
+    </style>
+    
+    <style name="Music.TextAppearance.Medium" parent="android:TextAppearance.Medium">
+    </style>
+    
+    <style name="Music.TextAppearance.Medium.Shadow">
+        <item name="android:shadowColor">@color/dark_transparent</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">3</item>
+    </style>
+    
+    <style name="Music.TextAppearance.Small" parent="android:TextAppearance.Small">
+    </style>
+    
+    <style name="Music.TextAppearance.Small.Shadow">
+        <item name="android:shadowColor">@color/dark_transparent</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">2</item>
+    </style>
+    
+    
+    <style name="Music.AudioPlayerDetailText" parent="Music.TextAppearance.Small.Shadow">
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    
+    <style name="Music.AudioPlayerDetailText">
+    </style>
+    
+    <style name="Music.AppWidgetText" parent="Music.TextAppearance.Shadow">
+        <item name="android:textColor">@color/appwidget_text</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:fadingEdge">horizontal</item>
+        <item name="android:fadingEdgeLength">18dip</item>
+        <item name="android:ellipsize">none</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Widget"></style>
+    
+    <style name="Widget.ProgressBar">
+        <item name="android:indeterminateOnly">true</item>
+        <item name="android:indeterminateBehavior">repeat</item>
+        <item name="android:indeterminateDuration">3500</item>
+        <item name="android:minWidth">48dip</item>
+        <item name="android:maxWidth">48dip</item>
+        <item name="android:minHeight">48dip</item>
+        <item name="android:maxHeight">48dip</item>
+    </style>
+    
+    <style name="Widget.ProgressBar.Regular">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/progressbar</item>
+        <item name="android:indeterminateDrawable">
+            @android:drawable/progress_indeterminate_horizontal
+        </item>
+        <item name="android:minHeight">1dip</item>
+        <item name="android:maxHeight">10dip</item>
+    </style>
+    
+</resources>

@@ -17,45 +17,47 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#66111111" >
+    android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:gravity="top">
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/album"
-            android:background="#6666"
+            android:background="#6000"
             android:layout_width="220dip"
             android:layout_height="220dip"
             android:layout_margin="12dip" />
 
         <LinearLayout
             android:layout_width="0dip"
-            android:layout_height="248dip"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
             android:orientation="vertical"
             android:gravity="center_vertical"
             android:layout_marginLeft="0dip">
 
-           <ImageButton android:id="@+id/curplaylist"
-               android:src="@drawable/ic_mp_current_playlist_btn"
-               android:layout_width="68dip"
-               android:layout_height="54dip"
-               android:layout_marginBottom="14dip"/>
+            <ImageButton android:id="@+id/curplaylist"
+                style="@style/Music.AudioPlayerDetailText"
+                android:src="@drawable/ic_mp_current_playlist_btn"
+                android:layout_width="68dip"
+                android:layout_height="54dip"
+                android:layout_marginBottom="14dip"/>
 
-           <ImageButton android:id="@+id/shuffle"
-               android:layout_width="68dip"
-               android:layout_height="54dip"
-               android:layout_marginBottom="14dip" />
+            <ImageButton android:id="@+id/shuffle"
+                style="@style/Music.AudioPlayerDetailText"
+                android:layout_width="68dip"
+                android:layout_height="54dip"
+                android:layout_marginBottom="14dip" />
 
-           <ImageButton android:id="@+id/repeat"
-               android:layout_width="68dip"
-               android:layout_height="54dip" />
+            <ImageButton android:id="@+id/repeat"
+                style="@style/Music.AudioPlayerDetailText"
+                android:layout_width="68dip"
+                android:layout_height="54dip" />
 
         </LinearLayout>
 
@@ -77,31 +79,20 @@
             android:src="@drawable/ic_mp_album_playback" />
         
         <TextView android:id="@+id/artistname"
+            style="@style/Music.AudioPlayerDetailText"
             android:text="Artist name very long long logn long long"
             android:textSize="14sp"
-            android:singleLine="true"
-            android:ellipsize="end"
-            android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxWidth="120dip"/>
+            android:maxWidth="140dip"/>
         
         <TextView
+            style="@style/Music.AudioPlayerDetailText"
             android:text=" - "
-            android:textSize="14sp"
-            android:layout_gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        
+            android:layout_width="wrap_content" />
         
         <TextView android:id="@+id/albumname"
-            android:text="Album name"
-            android:textSize="14sp"
-            android:singleLine="true"
-            android:ellipsize="end"
-            android:layout_gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            style="@style/Music.AudioPlayerDetailText"
+            android:text="Album name" />
         
     </LinearLayout>
     
@@ -121,14 +112,10 @@
             android:src="@drawable/ic_mp_song_playback" />
 
         <TextView android:id="@+id/trackname"
+            style="@style/Music.AudioPlayerDetailText"
             android:text="Track name"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:singleLine="true"
-            android:ellipsize="end"
-            android:layout_gravity="center_vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:textStyle="bold" />
 
     </LinearLayout>
 
