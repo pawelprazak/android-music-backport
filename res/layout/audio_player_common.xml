@@ -17,16 +17,18 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
     <com.android.music.SongSeekBar style="@style/Widget.ProgressBar.Regular"
         android:id="@+id/progressbar"
-        android:layout_width="fill_parent" 
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="4dip" />
+        android:layout_marginLeft="14dip"
+        android:layout_marginRight="14dip"
+        android:layout_marginTop="20dip"
+        android:layout_marginBottom="18dip" />
     
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="0dip"
-        android:paddingBottom="0dip"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center">
 
         <TextView style="@style/Music.TextAppearance.Medium.Shadow" 
             android:id="@+id/currenttime"
@@ -38,22 +40,23 @@
             android:layout_gravity="top"
             android:layout_weight="1"
             android:layout_width="0dip"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="top"
-            android:layout_marginTop="1dip"
+            android:layout_marginTop="2dip"
             android:layout_marginBottom="2dip"
             android:gravity="center">
 
-            <com.android.music.RepeatingImageButton android:id="@+id/prev" style="@android:style/MediaButton.Previous" />
+            <com.android.music.RepeatingImageButton android:id="@+id/prev" style="@style/MediaButton.Previous" />
 
-            <ImageButton android:id="@+id/pause" style="@android:style/MediaButton.Play" />
+            <ImageButton android:id="@+id/pause" style="@style/MediaButton.Play" />
 
-            <com.android.music.RepeatingImageButton android:id="@+id/next" style="@android:style/MediaButton.Next" />
+            <com.android.music.RepeatingImageButton android:id="@+id/next" style="@style/MediaButton.Next" />
 
         </LinearLayout>
 
@@ -67,7 +70,8 @@
             android:layout_gravity="top"
             android:layout_weight="1"
             android:layout_width="0dip"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
 
     </LinearLayout>
 

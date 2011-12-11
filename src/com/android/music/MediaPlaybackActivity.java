@@ -1133,11 +1133,11 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
                 mCurrentTime.setText(MusicUtils.makeTimeString(this, pos / 1000));
                 
                 if (mService.isPlaying()) {
-                    mCurrentTime.setVisibility(View.VISIBLE);
+//                    mCurrentTime.setVisibility(View.VISIBLE);
                 } else {
                     // blink the counter
-                    int vis = mCurrentTime.getVisibility();
-                    mCurrentTime.setVisibility(vis == View.INVISIBLE ? View.VISIBLE : View.INVISIBLE);
+//                    int vis = mCurrentTime.getVisibility();
+//                    mCurrentTime.setVisibility(vis == View.INVISIBLE ? View.VISIBLE : View.INVISIBLE);
                     remaining = 500;
                 }
 

@@ -18,7 +18,7 @@
     <color name="appwidget_text">#ffffffff</color>
 
     <color name="transparent">#00000000</color>
-    <color name="dark_transparent">#ff222222</color>
+    <color name="dark_transparent">#ff2a2a2a</color>
     
     <drawable name="background_dark_transparent">@color/dark_transparent</drawable>
 </resources>
